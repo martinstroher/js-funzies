@@ -6,7 +6,7 @@ const runClock = () => {
 
     const secondDegrees = 360 * (now.getSeconds() / 60) + 90
     const minuteDegrees = 360 * (now.getMinutes() / 60) + 90
-    const hourDegrees = 360 * (now.getHours() / 60) + 90
+    const hourDegrees = 360 * (now.getHours() / 12) + 90
     secondHand.style.transform = `rotate(${secondDegrees}deg)`
     minuteHand.style.transform = `rotate(${minuteDegrees}deg)`
     hourHand.style.transform = `rotate(${hourDegrees}deg)`
