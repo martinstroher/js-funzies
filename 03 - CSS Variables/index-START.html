@@ -19,13 +19,26 @@
     <input id="base" type="color" name="base" value="#ffc600">
   </div>
 
-  <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500">
+  <img src="background.jpeg">
 
   <style>
 
     /*
       misc styles, nothing to do with CSS variables
     */
+
+    :root {
+      --base: #193549;
+      --blur: 10px;
+      --spacing: 10px;
+    }
+
+    img {
+      width: 50%;
+      filter: blur(var(--blur));
+      border: 40px solid var(--base);
+      padding: var(--spacing);
+    }
 
     body {
       text-align: center;
@@ -46,6 +59,15 @@
   </style>
 
   <script>
+    const inputs = document.querySelectorAll('.controls input')
+    function handleChange() {
+      console.dir(this)
+      const sizing = this.dataset.sizing || "";
+      document.documentElement.style.setProperty(`--${this.name}`, this.value + sizing);
+    }
+
+    inputs.forEach(input => input.addEventListener('input', handleChange));
+
   </script>
 
 </body>
